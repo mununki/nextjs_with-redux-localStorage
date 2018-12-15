@@ -11,6 +11,8 @@ git clone https://github.com/mattdamon108/nextjs_with-redux-localStorage.git
 Install it and run:
 
 ```bash
+cd netxjs_with-redux-localStorage
+
 npm install
 npm run dev
 # or
@@ -20,7 +22,7 @@ yarn dev
 
 ## The idea behind the example
 
-This example add the part of using auth token in localStorage based on the example of next.js with-redux(https://github.com/zeit/next.js/blob/canary/examples/with-redux/README.md).
+This example adds the part of using auth token in localStorage based on the example of next.js with-redux(https://github.com/zeit/next.js/blob/canary/examples/with-redux/README.md).
 
 In case of using a token for authentication, for example JWT, generally the recommended way to save this token for client side is to localStorage.
 
