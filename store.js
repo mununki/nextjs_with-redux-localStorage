@@ -5,14 +5,17 @@ import thunkMiddleware from "redux-thunk";
 const exampleInitialState = {
   lastUpdate: 0,
   light: false,
-  count: 0
+  count: 0,
+  isLoggedIn: false,
+  token: ""
 };
 
 export const actionTypes = {
   TICK: "TICK",
   INCREMENT: "INCREMENT",
   DECREMENT: "DECREMENT",
-  RESET: "RESET"
+  RESET: "RESET",
+  TOGGLE_LOGGED: "TOGGLE_LOGGED"
 };
 
 // REDUCERS
@@ -34,6 +37,11 @@ export const reducer = (state = exampleInitialState, action) => {
     case actionTypes.RESET:
       return Object.assign({}, state, {
         count: exampleInitialState.count
+      });
+    case actionTypes.TOGGLE_LOGGED:
+      return Object.assign({}, state, {
+        isLoggedIn: action.isLoggedIn,
+        token: action.token
       });
     default:
       return state;
@@ -62,6 +70,14 @@ export const decrementCount = () => dispatch => {
 
 export const resetCount = () => dispatch => {
   return dispatch({ type: actionTypes.RESET });
+};
+
+export const toggleLogged = (isLoggedIn, token) => dispatch => {
+  return dispatch({
+    type: actionTypes.TOGGLE_LOGGED,
+    isLoggedIn,
+    token
+  });
 };
 
 export function initializeStore(initialState = exampleInitialState) {
